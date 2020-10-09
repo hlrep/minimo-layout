@@ -34,7 +34,20 @@
     targets: '.postcard, .postcard__content'
   });
 
-  /* server to ajax testing */
+  /* nav-toggle interactions */
+  {
+    let header = document.querySelector('.header');
+    let toggleBtn = header.querySelector('.nav-toggle');
+    let menu = header.querySelector('.menu');
+    toggleBtn.addEventListener('click', () => {
+      toggleBtn.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+    window.addEventListener('scroll', () => {
+      toggleBtn.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  }
 
 }());
 

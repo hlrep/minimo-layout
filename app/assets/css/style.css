@@ -64,6 +64,81 @@ a {
     width: 55%;
     height: 30px;
   }
+  .header__burger {
+    float: right;
+  }
+  .header__burger::before {
+    border: 3px solid #000;
+    width: 7px;
+    height: 100%;
+    display: block;
+  }
+/*
+    NAV-TOGGLE CLASS
+*/
+.nav-toggle {
+  float: right;
+  font-size: 0;
+  color: transparent;
+
+  position: relative;
+  right: 10px;
+
+  display: none;
+
+  cursor: pointer;
+
+  width: 28px;
+  height: 28px;
+}
+.nav-toggle__item {
+  width: 20px;
+  height: 3px;
+  background-color: #c7c7c7;
+  border-radius: 30%;
+
+  position: absolute;
+  top: 10px;
+
+  transition: background .2s linear;
+}
+.nav-toggle__item::before,
+.nav-toggle__item::after {
+  content: '';
+
+  width: 20px;
+  height: 3px;
+
+  display: block;
+
+  background-color: #c7c7c7;
+  border-radius: 30%;
+
+  position: absolute;
+
+  transition: transform .1s linear;
+}
+.nav-toggle__item::before {
+  top: -7px;
+}
+.nav-toggle__item::after {
+  top: 7px;
+}
+.nav-toggle.active > .nav-toggle__item {
+  background-color: transparent;
+}
+.nav-toggle.active > .nav-toggle__item::before {
+  transform-origin: left;
+  transform: rotate(45deg);
+  width: 28px;
+}
+.nav-toggle.active > .nav-toggle__item::after {
+  transform-origin: right;
+  transform: rotate(-45deg);
+  top: -7px;
+  left: -8px;
+  width: 28px;
+}
 
 /*
     MENU CLASS
@@ -94,7 +169,7 @@ a {
   }
 
 /*
-    MAIN CLASS
+    PAGE CLASS
 */
 .page__cover-img {
   margin-top: 30px;
@@ -145,6 +220,9 @@ a {
 
     cursor: pointer;
   }
+  .post__comment:hover {
+    text-decoration: underline;
+  }
 
 /*
     POST-CARD CLASS
@@ -154,7 +232,7 @@ a {
   padding: 7px;
 
   width: 47%;
-  min-width: 420px;
+
   max-width: 480px;
 
   display: block;
@@ -243,7 +321,7 @@ a {
     margin: 0 auto;
     padding: 0 20px;
 
-    width: 380px;
+    max-width: 380px;
 
     display: block;
 
@@ -360,3 +438,138 @@ a {
 
       width: 13%;
     }
+
+@media (max-width: 1070px)
+{
+  /*
+      HEADER CLASS
+  */
+  .header__logotype {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 867px)
+{
+  /*
+      PAGE CLASS mw867px
+  */
+  .page__postcards-section {
+    justify-content: center;
+  }
+  /*
+      POST-CARD CLASS mw867px
+  */
+  .postcard {
+    margin-bottom: 23px;
+
+    width: 100%;
+  }
+  .postcard:hover {
+    transform: none;
+  }
+
+  /*
+      LOAD-MORE CLASS
+  */
+  .load-more {
+    margin-bottom: 23px;
+  }
+
+  /*
+      FOOTER CLASS
+  */
+  .footer {
+    padding: 20px;
+  }
+  .footer__inner {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer__section {
+    width: 100%;
+
+    justify-content: space-around;
+  }
+  .footer__section--left,
+  .footer__section--right {
+    float: none;
+  }
+  .footer__section--left {
+    margin-bottom: 15px;
+  }
+
+  /*
+      NEWSLETTER CLASS
+  */
+  .newsletter {
+    margin-bottom: 23px;
+  }
+
+  /*
+      PAGE CLASS
+  */
+  .page__cover-img {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  /*
+      POST CLASS
+  */
+  .post {
+    margin-bottom: 52px;
+
+    text-align: center;
+  }
+  .post__content {
+    padding: 0 15px;
+    text-align: left;
+  }
+}
+@media (max-width: 768px) {
+  /*
+      MENU CLASS
+  */
+  .menu {
+    position: absolute;
+    top: 114px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    box-shadow: 0 7px 5px rgba(0, 0, 0, .5);
+
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform .2s linear;
+
+    background-color: #fff;
+    z-index: 1000;
+  }
+  .menu.active {
+    transform: scaleY(1);
+  }
+  .menu.active > .menu__link {
+    width: 100vw;
+    height: auto;
+  }
+  /*
+      NAV-TOGGLE CLASS
+  */
+  .nav-toggle {
+    display: block;
+  }
+
+  /*
+      POSTCARD CLASS
+  */
+  .postcard {
+    padding: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .1);
+  }
+
+}
