@@ -231,7 +231,7 @@ a {
 
     border-bottom: 1px solid #333;
   }
-  .newsletter__form:hover {
+  .newsletter__form.active {
     transform: scale(1.04);
   }
     .newsletter__email {

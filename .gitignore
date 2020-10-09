@@ -1,1 +1,5 @@
 layout
+node_modules
+package-lock.json
+posts.json
+server.js
